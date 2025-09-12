@@ -11,7 +11,7 @@ npx tailwindcss init -p
 # 3. Git y GitHub
 git init
 git add .
-git commit -m "Initial commit: Nubup web application setup"
+git commit -m "Initial commit: Emporio Gourmet Chile web application setup"
 git remote add origin https://github.com/tu-usuario/nubup-web.git
 git branch -M main
 git push -u origin main
