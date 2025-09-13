@@ -1,15 +1,98 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-      <!-- Favicon -->
-      <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-      <link rel="alternate icon" href="/favicon.ico" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>Emporio Gourmet - Experiencias Culinarias Excepcionales y Organización de Eventos</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+    <link rel="alternate icon" href="/favicon.ico"/>
+
+    <!-- SEO Meta Tags -->
+    <title>Emporio Gourmet - Experiencias Culinarias Excepcionales y Organización de Eventos</title>
+    <meta name="description"
+          content="Emporio Gourmet ofrece comida gourmet de alta cocina y organización profesional de eventos. Más de 15 años creando experiencias gastronómicas únicas en Santiago, Chile."/>
+    <meta name="keywords"
+          content="comida gourmet, catering, eventos, gastronomía, chef profesional, banquetes, bodas, eventos corporativos, Santiago, Chile"/>
+    <meta name="author" content="Emporio Gourmet"/>
+    <meta name="robots" content="index, follow"/>
+
+    <!-- Open Graph Meta Tags (Facebook) -->
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="Emporio Gourmet - Experiencias Culinarias Excepcionales"/>
+    <meta property="og:description"
+          content="Comida gourmet premium y organización de eventos únicos. Más de 15 años de experiencia gastronómica en Santiago, Chile."/>
+    <meta property="og:image" content="/og-image.jpg"/>
+    <meta property="og:url" content="https://emporiogourmet.com"/>
+    <meta property="og:site_name" content="Emporio Gourmet"/>
+    <meta property="og:locale" content="es_CL"/>
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:title" content="Emporio Gourmet - Experiencias Culinarias Excepcionales"/>
+    <meta name="twitter:description"
+          content="Comida gourmet premium y organización de eventos únicos. Más de 15 años de experiencia gastronómica."/>
+    <meta name="twitter:image" content="/twitter-image.jpg"/>
+    <meta name="twitter:site" content="@emporiogourmet"/>
+
+    <!-- Additional Meta Tags -->
+    <meta name="theme-color" content="#d97706"/>
+    <meta name="msapplication-TileColor" content="#d97706"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="default"/>
+    <meta name="apple-mobile-web-app-title" content="Emporio Gourmet"/>
+
+    <!-- Apple Touch Icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
+    <link rel="manifest" href="/site.webmanifest"/>
+
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://images.unsplash.com"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+
+    <!-- Schema.org JSON-LD for Local Business -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Restaurant",
+            "name": "Emporio Gourmet",
+            "image": "/og-image.jpg",
+            "description": "Restaurante gourmet y servicio de catering especializado en eventos únicos",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Av. Gastronómica 123",
+                "addressLocality": "Santiago",
+                "addressRegion": "Región Metropolitana",
+                "addressCountry": "CL"
+            },
+            "telephone": "+56-9-1234-5678",
+            "email": "info@emporiogourmet.com",
+            "url": "https://emporiogourmet.com",
+            "openingHours": [
+                "Mo-Su 09:00-22:00"
+            ],
+            "priceRange": "$$$",
+            "servesCuisine": "Gourmet",
+            "hasMenu": "https://emporiogourmet.com/menu",
+            "acceptsReservations": "True",
+            "sameAs": [
+                "https://www.facebook.com/emporiogourmetchile",
+                "https://www.instagram.com/blackypanter/"
+            ],
+            "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "4.9",
+                "reviewCount": "127"
+            }
+        }
+    </script>
+
+</head>
+<body>
+<div id="root"></div>
+<script type="module" src="/src/main.tsx"></script>
+</body>
 </html>
