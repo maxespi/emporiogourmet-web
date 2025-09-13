@@ -24,7 +24,7 @@ Sitio web oficial de Emporio Gourmet Chile - Experiencias culinarias excepcional
 ### Instalación
 
 ```bash
-# Clonar el repositorio
+# Clonar el repositorio (privado)
 git clone https://github.com/tu-usuario/emporiogourmet-web.git
 cd emporiogourmet-web
 
@@ -63,22 +63,54 @@ src/
 └── types/          # Definiciones de tipos TypeScript
 ```
 
+## ☁️ Infraestructura AWS
+
+### Stack de Deployment
+
+- **S3 Bucket**: Hosting estático del sitio web
+- **CloudFront**: CDN global para distribución de contenido
+- **Route 53**: Gestión DNS para dominio personalizado
+- **Certificate Manager**: Certificados SSL/TLS automáticos
+- **CodePipeline** (opcional): CI/CD automático
+
+### Configuración de AWS
+
+#### S3 Bucket
+- Bucket configurado para hosting estático
+- Políticas de acceso público para contenido web
+- Versionado activado para rollbacks
+
+#### CloudFront
+- Distribución global con edge locations
+- Compresión automática (Gzip/Brotli)
+- Caching optimizado para assets estáticos
+- HTTPS forzado con certificado SSL
+
+#### Dominio personalizado
+- `emporiogourmetchile.cl` apuntando a CloudFront
+- Certificado SSL válido y renovación automática
+- Redirección www → apex domain
+
 ## 🚀 Deployment
 
-### Deployment Automático
+### Deployment Manual
+```bash
+# Build del proyecto
+npm run build
 
-El sitio se despliega automáticamente en GitHub Pages cuando se hace push a la rama `main`. El workflow incluye:
+# Los archivos estáticos se generan en ./dist/
+# Subir contenido de ./dist/ al bucket S3
+aws s3 sync ./dist/ s3://tu-bucket-name --delete
 
-- Build automático con Vite
-- Optimización de assets
-- Deploy a GitHub Pages
-- Integración con Cloudflare CDN
+# Invalidar caché de CloudFront
+aws cloudfront create-invalidation --distribution-id XXXXXXXX --paths "/*"
+```
 
-### Configuración de Dominio
-
-- **GitHub Pages**: Configurado para dominio personalizado
-- **Cloudflare**: DNS y CDN configurados para `emporiogourmetchile.cl`
-- **SSL**: Certificado automático a través de Cloudflare
+### Deployment Automático (opcional)
+Con AWS CodePipeline conectado al repositorio privado mediante:
+- GitHub webhook o polling
+- Build automático en CodeBuild
+- Deploy a S3 + invalidación de CloudFront
 
 ## 🎨 Estilos y Diseño
 
@@ -116,19 +148,39 @@ Genera una carpeta `dist/` optimizada con:
 - Code splitting automático
 - Optimización de imágenes
 - Source maps para debugging
+- Assets con hash para cache busting
 
 ## 🌍 SEO y Performance
 
+### Optimizaciones implementadas
 - **Meta tags** optimizados para SEO
 - **Open Graph** para redes sociales
 - **Lazy loading** de imágenes
 - **Code splitting** para carga rápida
-- **CDN** de Cloudflare para distribución global
+- **Preload** de recursos críticos
 
-## 📞 Contacto
+### AWS Performance
+- **CloudFront CDN** con 300+ edge locations globalmente
+- **Compresión automática** de texto y assets
+- **HTTP/2** y HTTP/3 habilitado
+- **Cache headers** optimizados
 
-Para consultas técnicas sobre el proyecto, contactar al equipo de desarrollo.
+## 🔒 Seguridad
+
+- **HTTPS obligatorio** en todas las conexiones
+- **Security headers** configurados en CloudFront
+- **Repositorio privado** para proteger código fuente
+- **Variables de entorno** separadas por ambiente
+
+## 📊 Monitoreo
+
+- **CloudWatch** para métricas de S3 y CloudFront
+- **AWS Cost Explorer** para control de costos
+- **CloudFront Analytics** para análisis de tráfico
+
 
 ---
 
 **Emporio Gourmet Chile** - Transformando momentos en experiencias culinarias inolvidables.
+
+*Sitio desarrollado con tecnologías modernas y desplegado en infraestructura AWS para máximo rendimiento y confiabilidad.*

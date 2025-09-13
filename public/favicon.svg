@@ -1,21 +1,35 @@
 <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <!-- Fondo circular -->
-    <circle cx="16" cy="16" r="16" fill="#d97706"/>
+    <!-- Fondo circular con gradiente corporativo -->
+    <defs>
+        <radialGradient id="backgroundGradient" cx="0.5" cy="0.3" r="0.9">
+            <stop offset="0%" stop-color="#f472b6"/>
+            <stop offset="50%" stop-color="#ec4899"/>
+            <stop offset="100%" stop-color="#be185d"/>
+        </radialGradient>
+    </defs>
 
-    <!-- Sombra del chef hat -->
-    <ellipse cx="16.5" cy="26" rx="8" ry="1.5" fill="#b45309" opacity="0.3"/>
+    <!-- Fondo circular rosado -->
+    <circle cx="16" cy="16" r="16" fill="url(#backgroundGradient)"/>
 
-    <!-- Chef Hat Base -->
-    <ellipse cx="16" cy="24" rx="7" ry="2" fill="#ffffff"/>
+    <!-- Sombrero de chef blanco -->
+    <!-- Base del sombrero -->
+    <rect x="6" y="22" width="20" height="4" rx="2" ry="2" fill="#ffffff"/>
 
-    <!-- Chef Hat Top -->
-    <path d="M12 16c0-2.5 1.5-4.5 4-4.5s4 2 4 4.5c0 1-0.3 1.9-0.8 2.7-0.5 0.8-1.2 1.5-2 2-0.4 0.3-0.8 0.5-1.2 0.6-0.4 0.1-0.8 0.2-1.2 0.2h-1.6c-0.4 0-0.8-0.1-1.2-0.2-0.4-0.1-0.8-0.3-1.2-0.6-0.8-0.5-1.5-1.2-2-2C12.3 17.9 12 17 12 16z" fill="#ffffff"/>
+    <!-- Parte inflada del sombrero (forma de nube) -->
+    <!-- Círculo central -->
+    <circle cx="16" cy="16" r="5" fill="#ffffff"/>
 
-    <!-- Chef Hat Details -->
-    <circle cx="14" cy="16" r="0.8" fill="#f3f4f6"/>
-    <circle cx="16" cy="14" r="0.8" fill="#f3f4f6"/>
-    <circle cx="18" cy="16" r="0.8" fill="#f3f4f6"/>
+    <!-- Círculos laterales para formar la nube -->
+    <circle cx="11.5" cy="17" r="3.5" fill="#ffffff"/>
+    <circle cx="20.5" cy="17" r="3.5" fill="#ffffff"/>
 
-    <!-- Decorative star -->
-    <path d="M16 8l0.8 2.4 2.4 0.8-2.4 0.8-0.8 2.4-0.8-2.4-2.4-0.8 2.4-0.8z" fill="#fbbf24"/>
+    <!-- Círculos superiores -->
+    <circle cx="13" cy="13" r="3" fill="#ffffff"/>
+    <circle cx="19" cy="13" r="3" fill="#ffffff"/>
+
+    <!-- Círculo superior central -->
+    <circle cx="16" cy="11" r="2.5" fill="#ffffff"/>
+
+    <!-- Rectángulo para unir con la base -->
+    <rect x="8" y="18" width="16" height="4" fill="#ffffff"/>
 </svg>

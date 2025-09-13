@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import  { useState, useEffect } from 'react';
 import {
     Menu,
     X,
@@ -101,16 +101,17 @@ const App = () => {
     ];
 
     // Funciones para enlaces
-    const scrollToSection = (sectionId) => {
-        document.getElementById(sectionId)?.scrollIntoView({
-            behavior: 'smooth'
-        });
+    const scrollToSection = (sectionId: string) => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+        }
     };
 
-    const openWhatsApp = (message) => {
-        const phoneNumber = "56950251021";
-        const encodedMessage = encodeURIComponent(message);
-        window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
+    const openWhatsApp = (message: string) => {
+        const phoneNumber = '56912345678'; // Reemplaza con tu número
+        const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+        window.open(whatsappURL, '_blank');
     };
 
     // Carrusel automático
@@ -606,10 +607,16 @@ const App = () => {
 
                                 <button
                                     onClick={() => {
-                                        const name = document.getElementById('contact-name').value || '[Nombre]';
-                                        const email = document.getElementById('contact-email').value || '';
-                                        const subject = document.getElementById('contact-subject').value || '';
-                                        const message = document.getElementById('contact-message').value || '';
+                                        const nameElement = document.getElementById('contact-name') as HTMLInputElement;
+                                        const emailElement = document.getElementById('contact-email') as HTMLInputElement;
+                                        const subjectElement = document.getElementById('contact-subject') as HTMLInputElement;
+                                        const messageElement = document.getElementById('contact-message') as HTMLTextAreaElement;
+
+                                        const name = nameElement?.value || '[Nombre]';
+                                        const email = emailElement?.value || '';
+                                        const subject = subjectElement?.value || '';
+                                        const message = messageElement?.value || '';
+
                                         const fullMessage = `Hola! Soy ${name} ${email ? `(${email})` : ''} y me interesa contactar con Emporio Gourmet.${subject ? `\n\nAsunto: ${subject}` : ''}${message ? `\n\nMensaje: ${message}` : ''}`;
                                         openWhatsApp(fullMessage);
                                     }}
